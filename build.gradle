@@ -1,0 +1,34 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'checkstyle'
+}
+
+group 'com.itheo.chess'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile(
+        'junit:junit:4.12',
+        'org.codehaus.groovy:groovy-all:2.4.4',
+        'org.spockframework:spock-core:1.0-groovy-2.4'
+    )
+}
+
+checkstyle {
+    toolVersion "7.6.1"
+    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
