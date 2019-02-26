@@ -4,9 +4,12 @@ import com.itheo.knights.chess.board.ChessBoard;
 import com.itheo.knights.chess.board.Square;
 import com.itheo.knights.chess.pieces.ChessPiece;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
-public class DFPathResolverStrategy implements PathResolverStrategy {
+public class QPathResolverStrategy implements PathResolverStrategy {
 
     public List<List<Square>> apply(ChessBoard chess, ChessPiece piece, Square targetPosition, int totalMoves) {
         List<List<Square>> paths = new LinkedList<>();

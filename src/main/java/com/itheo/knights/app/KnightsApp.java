@@ -4,7 +4,8 @@ import com.itheo.knights.chess.board.Square;
 import com.itheo.knights.chess.pieces.Knight;
 import com.itheo.knights.path.PiecePathContext;
 import com.itheo.knights.path.PiecePathResolver;
-import com.itheo.knights.path.possible.DFPathResolverStrategy;
+import com.itheo.knights.path.possible.DepthFirstPathResolverStrategy;
+import com.itheo.knights.path.possible.QPathResolverStrategy;
 
 public class KnightsApp {
 
@@ -19,11 +20,13 @@ public class KnightsApp {
         KnightsChessBoard chess = new KnightsChessBoard(BOARD_X, BOARD_Y);
 
         Square startingPosition = new Square(0, 0);
-        Square targetPosition = new Square(0, 0);
+        Square targetPosition = new Square(6, 3);
 
         PiecePathContext context = new PiecePathContext(chess, startingPosition, targetPosition, TOTAL_STEPS);
         PiecePathResolver<Knight> knightsPathResolver = new PiecePathResolver<>(context, Knight.class);
-        knightsPathResolver.resolvePaths(new DFPathResolverStrategy());
+        knightsPathResolver.resolvePaths(new QPathResolverStrategy());
+
+        knightsPathResolver.resolvePaths(new DepthFirstPathResolverStrategy());
 
     }
 }

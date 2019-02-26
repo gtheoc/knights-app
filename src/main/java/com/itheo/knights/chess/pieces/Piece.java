@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface Piece {
 
+    Square getPosition();
+    void setPosition(Square square);
     List<Square> getPossibleMoves();
     void move(Square position);
 }
